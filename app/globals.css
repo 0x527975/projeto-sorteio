@@ -4,6 +4,22 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* Brand colors */
+  --primary-cyan: #00b3f1;
+  --primary-blue: #0180fe;
+  --background-dark: #09090b;
+  --background-darker: #0d0d0f;
+  --card-bg: rgba(20, 20, 23, 0.8);
+  --card-bg-light: rgba(20, 20, 23, 0.6);
+  --card-bg-lighter: rgba(20, 20, 23, 0.3);
+  --card-bg-lightest: rgba(20, 20, 23, 0.2);
+  --border-color: rgba(42, 42, 45, 0.5);
+  --border-color-light: rgba(42, 42, 45, 0.6);
+  --cyan-bg-light: rgba(0, 179, 241, 0.1);
+  --cyan-bg-medium: rgba(0, 179, 241, 0.2);
+  --cyan-border: rgba(0, 179, 241, 0.3);
+  --blue-bg-light: rgba(1, 128, 254, 0.15);
+
   /* Updated background to #09090b and primary colors to #00b3f1 and #0180fe */
   --background: #09090b;
   --foreground: oklch(0.985 0 0);

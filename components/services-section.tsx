@@ -65,7 +65,7 @@ function ServiceCard({ service, index }: { service: typeof bonusServices[0]; ind
       }}
     >
       <motion.div
-        className={`bg-gradient-to-br from-gray-950/50 to-slate-900/50 border backdrop-blur-sm relative overflow-hidden group cursor-pointer rounded-xl flex flex-col ${
+        className={`bg-gradient-to-br from-gray-950/50 to-slate-900/50 border backdrop-blur-sm relative overflow-hidden group rounded-xl flex flex-col ${
           service.highlight ? "border-cyan-500/60 ring-2 ring-cyan-500/20" : "border-gray-800/60"
         }`}
         initial={{ y: 0 }}
@@ -121,35 +121,55 @@ function ServiceCard({ service, index }: { service: typeof bonusServices[0]; ind
 
 export function ServicesSection() {
   return (
-    <section id="servicos" className="flex items-center justify-center px-4 relative overflow-hidden scroll-smooth" style={{ height: "100vh", minHeight: "100vh" }}>
-      <div className="absolute inset-0" style={{ backgroundColor: "#09090b" }} />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent" />
+    <section id="servicos" className="px-4 relative overflow-hidden scroll-smooth min-h-screen py-12">
+      <div className="absolute inset-0 bg-[#09090b]" />
 
-      <div className="container mx-auto relative z-10 w-full h-full flex flex-col items-center justify-center">
-        <div style={{ maxHeight: "calc(100vh - 72px)", overflow: "auto", width: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="text-cyan-400 text-sm font-semibold mb-4">Serviços Complementares</div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 text-balance">
-            {"Além da legalização, oferecemos "}
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">serviços especializados</span>
-            {" para seu negócio"}
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Complemente seu sorteio legalizado com nossos serviços especializados. Legalização via LOTEP é nosso serviço principal.
-          </p>
-        </motion.div>
+      {/* Animated gradient orbs */}
+      <motion.div
+        className="absolute top-20 right-10 w-[500px] h-[500px] rounded-full blur-[150px] bg-gradient-to-br from-[#00b3f1] to-[#0180fe]"
+        animate={{ scale: [1, 1.15, 1], opacity: [0.12, 0.2, 0.12] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute bottom-20 left-10 w-[400px] h-[400px] rounded-full blur-[130px] bg-gradient-to-br from-[#0180fe] to-[#00b3f1]"
+        animate={{ scale: [1.1, 1, 1.1], opacity: [0.1, 0.18, 0.1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {bonusServices.map((service, index) => (
-            <ServiceCard key={index} service={service} index={index} />
-          ))}
-        </div>
+      <div className="container mx-auto relative z-10 w-full flex flex-col items-center justify-center">
+        <div className="w-full flex flex-col items-center justify-center">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="text-cyan-400 text-sm font-semibold mb-4 relative inline-block">
+              Serviços Complementares
+              <motion.div
+                className="absolute -bottom-1 left-0 h-[2px] bg-gradient-to-r from-[#00b3f1] to-[#0180fe] rounded-full"
+                initial={{ width: 0 }}
+                whileInView={{ width: "100%" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              />
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 text-balance">
+              {"Além da legalização, oferecemos "}
+              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">serviços especializados</span>
+              {" para seu negócio"}
+            </h2>
+            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
+              Complemente seu sorteio legalizado com nossos serviços especializados. Legalização via LOTEP é nosso serviço principal.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {bonusServices.map((service, index) => (
+              <ServiceCard key={service.title} service={service} index={index} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
