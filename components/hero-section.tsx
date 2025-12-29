@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Zap } from "lucide-react"
+import { ArrowRight, Shield, FileCheck, Scale, Award, CheckCircle2 } from "lucide-react"
 import { motion } from "framer-motion"
 
 export function HeroSection() {
@@ -48,18 +48,66 @@ export function HeroSection() {
         }}
       />
 
+      {/* Floating document icons - decorative */}
+      <motion.div
+        className="absolute top-32 right-[15%] hidden md:block"
+        animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div className="p-4 rounded-2xl bg-gradient-to-br from-[rgba(0,179,241,0.15)] to-[rgba(1,128,254,0.1)] border border-[rgba(0,179,241,0.2)] backdrop-blur-sm">
+          <FileCheck className="w-8 h-8 text-[#00b3f1]" />
+        </div>
+      </motion.div>
+      <motion.div
+        className="absolute top-48 left-[10%] hidden md:block"
+        animate={{ y: [0, 12, 0], rotate: [0, -5, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+      >
+        <div className="p-4 rounded-2xl bg-gradient-to-br from-[rgba(0,179,241,0.15)] to-[rgba(1,128,254,0.1)] border border-[rgba(0,179,241,0.2)] backdrop-blur-sm">
+          <Scale className="w-8 h-8 text-[#00b3f1]" />
+        </div>
+      </motion.div>
+      <motion.div
+        className="absolute bottom-40 right-[8%] hidden md:block"
+        animate={{ y: [0, -10, 0], rotate: [0, -3, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      >
+        <div className="p-4 rounded-2xl bg-gradient-to-br from-[rgba(0,179,241,0.15)] to-[rgba(1,128,254,0.1)] border border-[rgba(0,179,241,0.2)] backdrop-blur-sm">
+          <Award className="w-8 h-8 text-[#00b3f1]" />
+        </div>
+      </motion.div>
+
       <div className="container mx-auto relative z-10 h-full flex flex-col items-center justify-center">
         <div className="max-w-4xl mx-auto text-center space-y-8 w-full">
+          {/* Certification seal badge */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex justify-center"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border backdrop-blur-sm bg-[rgba(0,179,241,0.1)] border-[rgba(0,179,241,0.3)]">
-              <Zap className="w-4 h-4 text-[#00b3f1]" />
-              <span className="text-sm font-medium text-[#00b3f1]">
-                Legalização de Sorteios
-              </span>
+            <div className="relative">
+              {/* Outer glow ring */}
+              <motion.div
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-[#00b3f1] to-[#0180fe] blur-lg opacity-40"
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              />
+              {/* Main badge with seal look */}
+              <div className="relative inline-flex items-center gap-3 px-5 py-2.5 rounded-full border-2 backdrop-blur-md bg-gradient-to-r from-[rgba(0,179,241,0.15)] to-[rgba(1,128,254,0.1)] border-[rgba(0,179,241,0.5)] shadow-[0_0_30px_rgba(0,179,241,0.2)]">
+                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-[#00b3f1] to-[#0180fe]">
+                  <Shield className="w-4 h-4 text-white" />
+                </div>
+                <div className="flex flex-col items-start">
+                  <span className="text-xs font-semibold text-[#00b3f1] uppercase tracking-wider">
+                    Autorizado LOTEP
+                  </span>
+                  <span className="text-[10px] text-gray-400">
+                    Legalização Oficial de Sorteios
+                  </span>
+                </div>
+                <CheckCircle2 className="w-5 h-5 text-emerald-400 ml-1" />
+              </div>
             </div>
           </motion.div>
 
