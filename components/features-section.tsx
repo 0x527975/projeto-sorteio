@@ -40,7 +40,7 @@ export function FeaturesSection() {
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-balance leading-tight">
             Potencialize a sua gestão com soluções
             <br />
-            exclusivas do ZentraTECH
+            exclusivas do ZENTRATECH
           </h2>
         </div>
 

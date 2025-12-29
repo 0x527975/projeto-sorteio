@@ -20,7 +20,7 @@ export function LegalizationSection() {
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Floating particles */}
+      {/* partículas flutuantes */}
       <motion.div
         className="absolute top-20 right-10 w-2 h-2 rounded-full bg-[#00b3f1]/40"
         animate={{ y: [0, -20, 0], opacity: [0.4, 0.8, 0.4] }}

@@ -9,7 +9,7 @@ export function HeroSection() {
     <section id="home" className="relative flex items-center justify-center px-4 overflow-hidden scroll-smooth h-screen min-h-screen">
       <div className="absolute inset-0 bg-[#09090b]" />
 
-      {/* Animated gradient orbs */}
+      {/* orbes de gradiente animados */}
       <motion.div
         className="absolute top-20 left-10 w-[400px] h-[400px] rounded-full blur-[120px] bg-gradient-to-br from-[#00b3f1] to-[#0180fe]"
         animate={{
@@ -48,7 +48,7 @@ export function HeroSection() {
         }}
       />
 
-      {/* Floating document icons - decorative */}
+      {/* ícones decorativos flutuantes */}
       <motion.div
         className="absolute top-32 right-[15%] hidden md:block"
         animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
@@ -79,7 +79,7 @@ export function HeroSection() {
 
       <div className="container mx-auto relative z-10 h-full flex flex-col items-center justify-center">
         <div className="max-w-4xl mx-auto text-center space-y-8 w-full">
-          {/* Certification seal badge */}
+          {/* selo de certificação */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -87,13 +87,13 @@ export function HeroSection() {
             className="flex justify-center"
           >
             <div className="relative">
-              {/* Outer glow ring */}
+              {/* anel de brilho externo */}
               <motion.div
                 className="absolute inset-0 rounded-full bg-gradient-to-r from-[#00b3f1] to-[#0180fe] blur-lg opacity-40"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               />
-              {/* Main badge with seal look */}
+              {/* emblema principal */}
               <div className="relative inline-flex items-center gap-3 px-5 py-2.5 rounded-full border-2 backdrop-blur-md bg-gradient-to-r from-[rgba(0,179,241,0.15)] to-[rgba(1,128,254,0.1)] border-[rgba(0,179,241,0.5)] shadow-[0_0_30px_rgba(0,179,241,0.2)]">
                 <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-[#00b3f1] to-[#0180fe]">
                   <Shield className="w-4 h-4 text-white" />
@@ -227,7 +227,7 @@ export function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Transition to next section */}
+      {/* transição para a próxima seção */}
       <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none">
         <motion.div
           className="absolute bottom-8 left-1/2 -translate-x-1/2"

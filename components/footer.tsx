@@ -14,7 +14,7 @@ export function Footer() {
                 <Zap className="w-6 h-6 text-white" />
               </div>
               <span className="text-xl font-bold">
-                <span className="text-white">Zentra</span>
+                <span className="text-white">ZENTRA</span>
                 <span className="text-[#00b3f1]">TECH</span>
               </span>
             </Link>
@@ -102,7 +102,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400 text-sm">© 2025 ZentraTECH. Todos os direitos reservados.</p>
+          <p className="text-gray-400 text-sm">© 2025 ZENTRATECH. Todos os direitos reservados.</p>
           <div className="flex gap-6">
             <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
               Privacidade

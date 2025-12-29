@@ -57,13 +57,31 @@ export function ContactSection() {
     setIsSubmitting(true)
 
     try {
-      // Aqui você pode integrar com sua API de envio de email
-      // Por exemplo: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
+      // Enviar diretamente para FormSubmit (frontend)
+      // Isso evita problemas de bloqueio de IP/Referer que podem ocorrer no backend
+      const response = await fetch("https://formsubmit.co/ajax/adm@zentra-group.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          _subject: `[Contato ZENTRATECH] ${formData.subject}`,
+          message: formData.message,
+          _template: "table",
+          _captcha: "false", // Desativa captcha para facilitar testes
+        }),
+      })
 
-      // Simulação de envio
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      const result = await response.json()
 
-      alert("Mensagem enviada com sucesso! Entraremos em contato em breve.")
+      if (!response.ok || result.success !== "true") {
+        throw new Error("Erro ao enviar mensagem")
+      }
+
+      alert("Mensagem enviada com sucesso! Verifique seu email para ativar o recebimento (na primeira vez).")
       setFormData({ name: "", email: "", subject: "", message: "" })
       setErrors({})
     } catch (error) {
@@ -285,14 +303,14 @@ export function ContactSection() {
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00b3f1] to-[#0180fe] rounded-xl blur opacity-0 group-hover:opacity-20 transition duration-300" />
                 <Card className="relative backdrop-blur-sm border bg-[rgba(20,20,23,0.8)] border-[rgba(0,179,241,0.2)] group-hover:border-[rgba(0,179,241,0.4)] transition-colors">
                   <CardContent className="p-4">
-                    <a href="mailto:contato@techflow.com.br" className="flex items-center gap-3">
+                    <a href="mailto:adm@zentra-group.com" className="flex items-center gap-3">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00b3f1] to-[#0180fe] flex items-center justify-center group-hover:scale-110 transition-transform">
                         <Mail className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3 className="text-white font-bold text-sm mb-0.5">Email</h3>
                         <p className="text-gray-400 hover:text-[#00b3f1] transition-colors text-xs truncate">
-                          contato@techflow.com.br
+                          adm@zentra-group.com
                         </p>
                       </div>
                     </a>
@@ -337,7 +355,7 @@ export function ContactSection() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <h3 className="text-white font-bold text-sm mb-0.5">Endereço</h3>
-                        <p className="text-gray-400 text-xs">São Paulo, SP - Brasil</p>
+                        <p className="text-gray-400 text-xs">Rua Presidente Getúlio Dorneles Vargas, 111, Caixa Postal 0036, Bairro Centro, CEP: 58175-000 - Cuité - João Pessoa/PB</p>
                       </div>
                     </div>
                   </CardContent>

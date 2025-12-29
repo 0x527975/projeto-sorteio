@@ -48,7 +48,7 @@ const bonusServices = [
     title: "Desenvolvimento de Software",
     shortDescription: "Sites, sistemas e plataformas digitais totalmente personalizados.",
     fullDescription:
-      "Na Zentra Tech, desenvolvemos sites, sistemas e plataformas digitais totalmente personalizados, criados do zero para refletir a identidade, os objetivos e as necessidades de cada cliente. Nossos projetos unem design exclusivo, tecnologia moderna, segurança e alta performance, entregando soluções sob medida que fortalecem a presença digital e impulsionam resultados.",
+      "Na ZENTRATECH, desenvolvemos sites, sistemas e plataformas digitais totalmente personalizados, criados do zero para refletir a identidade, os objetivos e as necessidades de cada cliente. Nossos projetos unem design exclusivo, tecnologia moderna, segurança e alta performance, entregando soluções sob medida que fortalecem a presença digital e impulsionam resultados.",
   },
 ]
 

@@ -10,11 +10,11 @@ import { WhatsAppButton } from "@/components/whatsapp-button"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "ZentraTECH - Legalização de Sorteios e Serviços Especializados",
+  title: "ZENTRATECH - Legalização de Sorteios e Serviços Especializados",
   description: "Legalize seus sorteios com segurança e tecnologia. Oferecemos legalização via LOTEP, blindagem patrimonial, assessoria jurídica e contábil, além de desenvolvimento de software.",
   keywords: ["legalização de sorteios", "LOTEP", "blindagem patrimonial", "assessoria jurídica", "desenvolvimento de software"],
   openGraph: {
-    title: "ZentraTECH - Legalização de Sorteios",
+    title: "ZENTRATECH - Legalização de Sorteios",
     description: "Legalize seus sorteios com segurança e tecnologia",
     type: "website",
   },

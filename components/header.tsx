@@ -19,12 +19,12 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-[72px] bg-[rgba(9,9,11,0.8)] backdrop-blur-sm border-b border-[#2a2a2d]">
       <div className="container mx-auto px-4 h-full flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2" aria-label="ZentraTECH Home">
+        <Link href="/" className="flex items-center gap-2" aria-label="ZENTRATECH Home">
           <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-[#00b3f1]">
             <Zap className="w-6 h-6 text-white" />
           </div>
           <span className="text-xl font-bold">
-            <span className="text-white">Zentra</span>
+            <span className="text-white">ZENTRA</span>
             <span className="text-[#00b3f1]">TECH</span>
           </span>
         </Link>
@@ -75,7 +75,7 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* menu mobile */}
       {mobileMenuOpen && (
         <div className="md:hidden absolute top-[72px] left-0 right-0 bg-[rgba(9,9,11,0.95)] backdrop-blur-sm border-b border-[#2a2a2d]">
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-4" aria-label="Menu mobile">

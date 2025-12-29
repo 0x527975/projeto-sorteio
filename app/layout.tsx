@@ -11,7 +11,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "ZentraTECH - Transformando ideias em soluções digitais",
+  title: "ZENTRATECH - Transformando ideias em soluções digitais",
   description:
     "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio e criam experiências digitais extraordinárias.",
   icons: {

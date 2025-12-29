@@ -21,7 +21,7 @@ export function SectionTransition({
         background: fromColor === toColor ? fromColor : `linear-gradient(180deg, ${fromColor} 0%, ${toColor} 100%)`
       }}
     >
-      {/* Animated glowing line that runs across */}
+      {/* linha brilhante animada */}
       <div className="absolute top-1/2 left-0 right-0 h-px -translate-y-1/2">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#2a2a2d]/50 to-transparent" />
         <motion.div
@@ -37,7 +37,7 @@ export function SectionTransition({
         />
       </div>
 
-      {/* Floating particles that appear along the path */}
+      {/* partículas flutuantes */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(8)].map((_, i) => (
           <motion.div
@@ -62,7 +62,7 @@ export function SectionTransition({
         ))}
       </div>
 
-      {/* Center diamond with glow effect */}
+      {/* diamante central com brilho */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <motion.div
           className="relative"
@@ -71,7 +71,7 @@ export function SectionTransition({
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
         >
-          {/* Outer glow ring */}
+          {/* anel de brilho externo */}
           <motion.div
             className="absolute inset-0 w-6 h-6 -translate-x-1/2 -translate-y-1/2"
             style={{
@@ -80,7 +80,7 @@ export function SectionTransition({
             animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0.2, 0.5] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           />
-          {/* Inner diamond */}
+          {/* diamante interno */}
           <div
             className="w-3 h-3 bg-gradient-to-br from-[#00b3f1] to-[#0180fe]"
             style={{ boxShadow: "0 0 10px #00b3f1, 0 0 20px rgba(0,179,241,0.5)" }}
@@ -88,7 +88,7 @@ export function SectionTransition({
         </motion.div>
       </div>
 
-      {/* Side decorative elements - left */}
+      {/* elementos decorativos - esquerda */}
       <div className="absolute top-1/2 left-6 -translate-y-1/2 flex items-center gap-2">
         {[0, 1, 2].map((i) => (
           <motion.div
@@ -106,7 +106,7 @@ export function SectionTransition({
         ))}
       </div>
 
-      {/* Side decorative elements - right */}
+      {/* elementos decorativos - direita */}
       <div className="absolute top-1/2 right-6 -translate-y-1/2 flex items-center gap-2">
         {[0, 1, 2].map((i) => (
           <motion.div
@@ -124,7 +124,7 @@ export function SectionTransition({
         ))}
       </div>
 
-      {/* Subtle corner accents */}
+      {/* detalhes sutis nos cantos */}
       <motion.div
         className="absolute top-3 left-1/4 w-8 h-px bg-gradient-to-r from-transparent via-[#00b3f1]/30 to-transparent"
         initial={{ scaleX: 0, opacity: 0 }}

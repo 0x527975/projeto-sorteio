@@ -12,10 +12,10 @@ const stats = [
 export function AboutSection() {
   return (
     <section id="sobre" className="py-20 px-4 relative overflow-hidden scroll-smooth">
-      {/* Background */}
+      {/* fundo */}
       <div className="absolute inset-0 bg-[#09090b]" />
 
-      {/* Animated gradient orbs */}
+      {/* animações de fundo */}
       <motion.div
         className="absolute top-10 left-10 w-[400px] h-[400px] rounded-full blur-[150px] opacity-20 bg-gradient-to-br from-[#00b3f1] to-[#0180fe]"
         animate={{
@@ -41,7 +41,7 @@ export function AboutSection() {
         }}
       />
 
-      {/* Grid pattern */}
+      {/* padrão de grade */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div
           className="absolute inset-0"
@@ -54,7 +54,7 @@ export function AboutSection() {
 
       <div className="container mx-auto relative z-10 max-w-5xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left - Text Content */}
+          {/* conteúdo textual */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -79,7 +79,7 @@ export function AboutSection() {
 
             <div className="space-y-3 text-gray-400 text-base leading-relaxed">
               <p>
-                Na <span className="text-[#00b3f1] font-semibold">Zentra Tech</span>, desenvolvemos sites, sistemas e plataformas digitais totalmente personalizados, criados do zero para refletir a identidade, os objetivos e as necessidades de cada cliente.
+                Na <span className="text-[#00b3f1] font-semibold">ZENTRATECH</span>, desenvolvemos sites, sistemas e plataformas digitais totalmente personalizados, criados do zero para refletir a identidade, os objetivos e as necessidades de cada cliente.
               </p>
               <p>
                 Nossos projetos unem design exclusivo, tecnologia moderna, segurança e alta performance, entregando soluções sob medida que fortalecem a presença digital e impulsionam resultados.
@@ -87,7 +87,7 @@ export function AboutSection() {
             </div>
           </motion.div>
 
-          {/* Right - Stats */}
+          {/* estatísticas */}
           <motion.div
             className="grid grid-cols-3 gap-2 sm:gap-4"
             initial={{ opacity: 0, y: 30 }}
