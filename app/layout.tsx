@@ -1,19 +1,25 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Poppins } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
+import type React from "react";
+import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-poppins",
-})
+});
 
 export const metadata: Metadata = {
   title: "ZENTRATECH - Transformando ideias em soluções digitais",
   description:
     "Desenvolvemos tecnologias inovadoras que impulsionam o crescimento do seu negócio e criam experiências digitais extraordinárias.",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
   icons: {
     icon: [
       {
@@ -31,12 +37,12 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
@@ -45,5 +51,5 @@ export default function RootLayout({
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

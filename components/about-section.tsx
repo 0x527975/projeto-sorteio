@@ -18,31 +18,9 @@ export function AboutSection() {
       {/* fundo */}
       <div className="absolute inset-0 bg-[#09090b]" />
 
-      {/* animações de fundo */}
-      <motion.div
-        className="absolute top-10 left-10 w-[400px] h-[400px] rounded-full blur-[150px] opacity-20 bg-gradient-to-br from-[#00b3f1] to-[#0180fe]"
-        animate={{
-          scale: [1, 1.15, 1],
-          opacity: [0.15, 0.25, 0.15],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-10 right-10 w-[300px] h-[300px] rounded-full blur-[120px] opacity-20 bg-gradient-to-br from-[#0180fe] to-[#00b3f1]"
-        animate={{
-          scale: [1.1, 1, 1.1],
-          opacity: [0.2, 0.1, 0.2],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
+      {/* elementos de fundo - estáticos para performance */}
+      <div className="absolute top-10 left-0 sm:left-10 w-[150px] sm:w-[250px] md:w-[350px] h-[150px] sm:h-[250px] md:h-[350px] rounded-full blur-[80px] sm:blur-[120px] opacity-20 bg-gradient-to-br from-[#00b3f1] to-[#0180fe]" />
+      <div className="absolute bottom-10 right-0 sm:right-10 w-[120px] sm:w-[180px] md:w-[250px] h-[120px] sm:h-[180px] md:h-[250px] rounded-full blur-[80px] sm:blur-[100px] opacity-15 bg-gradient-to-br from-[#0180fe] to-[#00b3f1]" />
 
       {/* padrão de grade */}
       <div className="absolute inset-0 opacity-[0.02]">
@@ -101,7 +79,7 @@ export function AboutSection() {
 
           {/* estatísticas */}
           <motion.div
-            className="grid grid-cols-3 gap-2 sm:gap-4"
+            className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -114,14 +92,16 @@ export function AboutSection() {
                 className="group relative text-center"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#00b3f1]/20 to-[#0180fe]/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative p-4 rounded-xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/10 backdrop-blur-xl">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00b3f1]/20 to-[#0180fe]/20 flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-300">
-                    <stat.icon className="w-5 h-5 text-[#00b3f1]" />
+                <div className="relative p-2 sm:p-3 md:p-4 rounded-xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/10 backdrop-blur-xl">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-[#00b3f1]/20 to-[#0180fe]/20 flex items-center justify-center mx-auto mb-1.5 sm:mb-2 group-hover:scale-110 transition-transform duration-300">
+                    <stat.icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#00b3f1]" />
                   </div>
-                  <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
+                  <div className="text-lg sm:text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
                     {stat.number}
                   </div>
-                  <div className="text-xs text-gray-500">{stat.label}</div>
+                  <div className="text-[10px] sm:text-xs text-gray-500">
+                    {stat.label}
+                  </div>
                 </div>
               </motion.div>
             ))}

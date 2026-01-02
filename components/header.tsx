@@ -74,8 +74,8 @@ export function Header() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden text-gray-400 hover:text-white transition-colors p-2 cursor-pointer"
-            aria-label="Toggle menu"
-            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+            type="button"
           >
             {mobileMenuOpen ? (
               <X className="w-6 h-6" />

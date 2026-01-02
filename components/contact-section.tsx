@@ -115,25 +115,17 @@ export function ContactSection() {
   return (
     <section
       id="contato"
-      className="px-4 relative overflow-hidden scroll-smooth min-h-screen py-12"
+      className="px-4 relative overflow-hidden scroll-smooth min-h-screen py-12 sm:py-16"
     >
       <div className="absolute inset-0 bg-[#0d0d0f]" />
-      <div className="absolute bottom-0 left-0 right-0 h-[400px] bg-gradient-to-t from-[rgba(0,179,241,0.1)] to-transparent" />
-      <motion.div
-        className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full blur-[120px] bg-gradient-to-br from-[#00b3f1] to-[#0180fe]"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full blur-[120px] bg-gradient-to-br from-[#0180fe] to-[#00b3f1]"
-        animate={{ scale: [1.15, 1, 1.15], opacity: [0.15, 0.22, 0.15] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
+      <div className="absolute bottom-0 left-0 right-0 h-[200px] sm:h-[300px] md:h-[400px] bg-gradient-to-t from-[rgba(0,179,241,0.08)] to-transparent" />
+      <div className="absolute top-0 left-0 w-[120px] sm:w-[200px] md:w-[300px] h-[120px] sm:h-[200px] md:h-[300px] rounded-full blur-[60px] sm:blur-[80px] md:blur-[100px] bg-gradient-to-br from-[#00b3f1] to-[#0180fe] opacity-20" />
+      <div className="absolute bottom-0 right-0 w-[120px] sm:w-[200px] md:w-[300px] h-[120px] sm:h-[200px] md:h-[300px] rounded-full blur-[60px] sm:blur-[80px] md:blur-[100px] bg-gradient-to-br from-[#0180fe] to-[#00b3f1] opacity-18" />
 
       <div className="container mx-auto relative z-10 w-full flex flex-col items-center justify-center">
         <div className="w-full flex flex-col items-center justify-center">
-          <div className="text-center mb-12">
-            <div className="text-sm font-semibold mb-4 text-[#00b3f1] relative inline-block">
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="text-sm font-semibold mb-3 sm:mb-4 text-[#00b3f1] relative inline-block">
               Contato
               <motion.div
                 className="absolute -bottom-1 left-0 h-[2px] bg-gradient-to-r from-[#00b3f1] to-[#0180fe] rounded-full"
@@ -143,7 +135,7 @@ export function ContactSection() {
                 transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               />
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
               Vamos{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00b3f1] to-[#0180fe]">
                 conversar
@@ -155,7 +147,7 @@ export function ContactSection() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto items-start w-full px-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto items-start w-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

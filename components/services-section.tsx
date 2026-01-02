@@ -149,17 +149,9 @@ export function ServicesSection() {
     >
       <div className="absolute inset-0 bg-[#09090b]" />
 
-      {/* Animated gradient orbs */}
-      <motion.div
-        className="absolute top-20 right-10 w-[500px] h-[500px] rounded-full blur-[150px] bg-gradient-to-br from-[#00b3f1] to-[#0180fe]"
-        animate={{ scale: [1, 1.15, 1], opacity: [0.12, 0.2, 0.12] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-20 left-10 w-[400px] h-[400px] rounded-full blur-[130px] bg-gradient-to-br from-[#0180fe] to-[#00b3f1]"
-        animate={{ scale: [1.1, 1, 1.1], opacity: [0.1, 0.18, 0.1] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
+      {/* Static gradient orbs for performance */}
+      <div className="absolute top-20 right-0 sm:right-10 w-[180px] sm:w-[300px] md:w-[400px] h-[180px] sm:h-[300px] md:h-[400px] rounded-full blur-[80px] sm:blur-[120px] bg-gradient-to-br from-[#00b3f1] to-[#0180fe] opacity-15" />
+      <div className="absolute bottom-20 left-0 sm:left-10 w-[150px] sm:w-[250px] md:w-[350px] h-[150px] sm:h-[250px] md:h-[350px] rounded-full blur-[80px] sm:blur-[110px] bg-gradient-to-br from-[#0180fe] to-[#00b3f1] opacity-12" />
 
       <div className="container mx-auto relative z-10 w-full flex flex-col items-center justify-center">
         <div className="w-full flex flex-col items-center justify-center">
