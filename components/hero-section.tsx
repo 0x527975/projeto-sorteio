@@ -1,12 +1,22 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Shield, FileCheck, Scale, Award, CheckCircle2 } from "lucide-react"
-import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button";
+import {
+  ArrowRight,
+  Shield,
+  FileCheck,
+  Scale,
+  Award,
+  CheckCircle2,
+} from "lucide-react";
+import { motion } from "framer-motion";
 
 export function HeroSection() {
   return (
-    <section id="home" className="relative flex items-center justify-center px-4 overflow-hidden scroll-smooth h-screen min-h-screen">
+    <section
+      id="home"
+      className="relative flex items-center justify-center px-4 overflow-hidden scroll-smooth min-h-screen pt-20 pb-12 md:pt-0 md:pb-0 md:h-screen"
+    >
       <div className="absolute inset-0 bg-[#09090b]" />
 
       {/* orbes de gradiente animados */}
@@ -61,7 +71,12 @@ export function HeroSection() {
       <motion.div
         className="absolute top-48 left-[10%] hidden md:block"
         animate={{ y: [0, 12, 0], rotate: [0, -5, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5,
+        }}
       >
         <div className="p-4 rounded-2xl bg-gradient-to-br from-[rgba(0,179,241,0.15)] to-[rgba(1,128,254,0.1)] border border-[rgba(0,179,241,0.2)] backdrop-blur-sm">
           <Scale className="w-8 h-8 text-[#00b3f1]" />
@@ -70,7 +85,12 @@ export function HeroSection() {
       <motion.div
         className="absolute bottom-40 right-[8%] hidden md:block"
         animate={{ y: [0, -10, 0], rotate: [0, -3, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
       >
         <div className="p-4 rounded-2xl bg-gradient-to-br from-[rgba(0,179,241,0.15)] to-[rgba(1,128,254,0.1)] border border-[rgba(0,179,241,0.2)] backdrop-blur-sm">
           <Award className="w-8 h-8 text-[#00b3f1]" />
@@ -91,7 +111,11 @@ export function HeroSection() {
               <motion.div
                 className="absolute inset-0 rounded-full bg-gradient-to-r from-[#00b3f1] to-[#0180fe] blur-lg opacity-40"
                 animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
               {/* emblema principal */}
               <div className="relative inline-flex items-center gap-3 px-5 py-2.5 rounded-full border-2 backdrop-blur-md bg-gradient-to-r from-[rgba(0,179,241,0.15)] to-[rgba(1,128,254,0.1)] border-[rgba(0,179,241,0.5)] shadow-[0_0_30px_rgba(0,179,241,0.2)]">
@@ -112,7 +136,7 @@ export function HeroSection() {
           </motion.div>
 
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-tight text-balance"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight text-balance px-2"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
@@ -120,7 +144,9 @@ export function HeroSection() {
             {"Legalize seus sorteios com "}
             <motion.span
               className="bg-clip-text text-transparent bg-gradient-to-r from-[#00b3f1] via-[#0180fe] to-[#00b3f1] bg-[length:200%_auto]"
-              animate={{ backgroundPosition: ["0% center", "100% center", "0% center"] }}
+              animate={{
+                backgroundPosition: ["0% center", "100% center", "0% center"],
+              }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
             >
               segurança e tecnologia
@@ -128,12 +154,13 @@ export function HeroSection() {
           </motion.h1>
 
           <motion.p
-            className="text-lg text-gray-400 max-w-2xl mx-auto text-pretty leading-relaxed"
+            className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto text-pretty leading-relaxed px-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           >
-            Transforme seus sorteios em operações 100% legais com nossa expertise em legalização via LOTEP e serviços especializados.
+            Transforme seus sorteios em operações 100% legais com nossa
+            expertise em legalização via LOTEP e serviços especializados.
           </motion.p>
 
           <motion.div
@@ -144,10 +171,10 @@ export function HeroSection() {
           >
             <Button
               onClick={() => {
-                const element = document.getElementById("contato")
-                element?.scrollIntoView({ behavior: "smooth", block: "start" })
+                const element = document.getElementById("contato");
+                element?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
-              className="group relative text-white px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg rounded-2xl font-semibold overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl bg-gradient-to-r from-[#00b3f1] to-[#0180fe] shadow-[0_10px_40px_rgba(0,179,241,0.3)]"
+              className="group relative text-white px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg rounded-2xl font-semibold overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl bg-gradient-to-r from-[#00b3f1] to-[#0180fe] shadow-[0_10px_40px_rgba(0,179,241,0.3)] cursor-pointer"
             >
               <span className="relative z-10 flex items-center">
                 Fale Conosco
@@ -157,11 +184,11 @@ export function HeroSection() {
             </Button>
             <Button
               onClick={() => {
-                const element = document.getElementById("sobre")
-                element?.scrollIntoView({ behavior: "smooth", block: "start" })
+                const element = document.getElementById("sobre");
+                element?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
               variant="outline"
-              className="group relative px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg bg-transparent rounded-2xl font-semibold overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:bg-cyan-500/10 border-[rgba(0,179,241,0.3)] text-[#00b3f1]"
+              className="group relative px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg bg-transparent rounded-2xl font-semibold overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:bg-cyan-500/10 border-[rgba(0,179,241,0.3)] text-[#00b3f1] cursor-pointer"
             >
               <span className="relative z-10">Saiba Mais</span>
               <div className="absolute inset-0 border-2 rounded-2xl border-cyan-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -170,7 +197,7 @@ export function HeroSection() {
         </div>
 
         <motion.div
-          className="mt-8 sm:mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 w-full max-w-4xl px-2"
+          className="mt-6 sm:mt-8 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-8 w-full max-w-4xl px-2"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -183,10 +210,12 @@ export function HeroSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.9 }}
           >
-            <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent group-hover:scale-105 transition-all bg-gradient-to-r from-[#00b3f1] to-[#0180fe]">
+            <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent group-hover:scale-105 transition-all bg-gradient-to-r from-[#00b3f1] to-[#0180fe]">
               100%
             </div>
-            <div className="text-gray-400 mt-2">Legalizado</div>
+            <div className="text-gray-400 mt-1 sm:mt-2 text-xs sm:text-sm md:text-base">
+              Legalizado
+            </div>
           </motion.div>
           <motion.div
             className="text-center group"
@@ -195,10 +224,12 @@ export function HeroSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 1.0 }}
           >
-            <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent group-hover:scale-105 transition-all bg-gradient-to-r from-[#00b3f1] to-[#0180fe]">
+            <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent group-hover:scale-105 transition-all bg-gradient-to-r from-[#00b3f1] to-[#0180fe]">
               500+
             </div>
-            <div className="text-gray-400 mt-2">Sorteios Realizados</div>
+            <div className="text-gray-400 mt-1 sm:mt-2 text-xs sm:text-sm md:text-base">
+              Sorteios Realizados
+            </div>
           </motion.div>
           <motion.div
             className="text-center group"
@@ -207,10 +238,12 @@ export function HeroSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 1.1 }}
           >
-            <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent group-hover:scale-105 transition-all bg-gradient-to-r from-[#00b3f1] to-[#0180fe]">
+            <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent group-hover:scale-105 transition-all bg-gradient-to-r from-[#00b3f1] to-[#0180fe]">
               10+
             </div>
-            <div className="text-gray-400 mt-2">Anos de Experiência</div>
+            <div className="text-gray-400 mt-1 sm:mt-2 text-xs sm:text-sm md:text-base">
+              Anos de Experiência
+            </div>
           </motion.div>
           <motion.div
             className="text-center group"
@@ -219,10 +252,12 @@ export function HeroSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 1.2 }}
           >
-            <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent group-hover:scale-105 transition-all bg-gradient-to-r from-[#00b3f1] to-[#0180fe]">
+            <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent group-hover:scale-105 transition-all bg-gradient-to-r from-[#00b3f1] to-[#0180fe]">
               R$ 0
             </div>
-            <div className="text-gray-400 mt-2">Custo de Legalização</div>
+            <div className="text-gray-400 mt-1 sm:mt-2 text-xs sm:text-sm md:text-base">
+              Custo de Legalização
+            </div>
           </motion.div>
         </motion.div>
       </div>
@@ -233,13 +268,24 @@ export function HeroSection() {
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.5, repeat: Infinity, repeatType: "reverse" }}
+          transition={{
+            duration: 1,
+            delay: 1.5,
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
         >
           <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-gray-500 uppercase tracking-wider">Role para ver mais</span>
+            <span className="text-xs text-gray-500 uppercase tracking-wider">
+              Role para ver mais
+            </span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             >
               <svg
                 className="w-6 h-6 text-[#00b3f1]/60"
@@ -257,5 +303,5 @@ export function HeroSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

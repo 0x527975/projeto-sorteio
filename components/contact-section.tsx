@@ -1,14 +1,22 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Send, User, MessageSquare, FileText } from "lucide-react"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { motion } from "framer-motion"
-import { useState } from "react"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  User,
+  MessageSquare,
+  FileText,
+} from "lucide-react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -16,91 +24,99 @@ export function ContactSection() {
     email: "",
     subject: "",
     message: "",
-  })
-  const [errors, setErrors] = useState<Record<string, string>>({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = () => {
-    const newErrors: Record<string, string> = {}
+    const newErrors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = "Nome é obrigatório"
+      newErrors.name = "Nome é obrigatório";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email é obrigatório"
+      newErrors.email = "Email é obrigatório";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Email inválido"
+      newErrors.email = "Email inválido";
     }
 
     if (!formData.subject.trim()) {
-      newErrors.subject = "Assunto é obrigatório"
+      newErrors.subject = "Assunto é obrigatório";
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Mensagem é obrigatória"
+      newErrors.message = "Mensagem é obrigatória";
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Mensagem deve ter pelo menos 10 caracteres"
+      newErrors.message = "Mensagem deve ter pelo menos 10 caracteres";
     }
 
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!validateForm()) {
-      return
+      return;
     }
 
-    setIsSubmitting(true)
+    setIsSubmitting(true);
 
     try {
       // Enviar diretamente para FormSubmit (frontend)
       // Isso evita problemas de bloqueio de IP/Referer que podem ocorrer no backend
-      const response = await fetch("https://formsubmit.co/ajax/adm@zentra-group.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          _subject: `[Contato ZENTRATECH] ${formData.subject}`,
-          message: formData.message,
-          _template: "table",
-          _captcha: "false", // Desativa captcha para facilitar testes
-        }),
-      })
+      const response = await fetch(
+        "https://formsubmit.co/ajax/adm@zentra-group.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            _subject: `[Contato ZENTRATECH] ${formData.subject}`,
+            message: formData.message,
+            _template: "table",
+            _captcha: "false", // Desativa captcha para facilitar testes
+          }),
+        }
+      );
 
-      const result = await response.json()
+      const result = await response.json();
 
       if (!response.ok || result.success !== "true") {
-        throw new Error("Erro ao enviar mensagem")
+        throw new Error("Erro ao enviar mensagem");
       }
 
-      alert("Mensagem enviada com sucesso! Verifique seu email para ativar o recebimento (na primeira vez).")
-      setFormData({ name: "", email: "", subject: "", message: "" })
-      setErrors({})
+      alert(
+        "Mensagem enviada com sucesso! Verifique seu email para ativar o recebimento (na primeira vez)."
+      );
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setErrors({});
     } catch (error) {
-      alert("Erro ao enviar mensagem. Tente novamente mais tarde.")
-      console.error("Form submission error:", error)
+      alert("Erro ao enviar mensagem. Tente novamente mais tarde.");
+      console.error("Form submission error:", error);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const handleChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
+    setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
-      setErrors((prev) => ({ ...prev, [field]: "" }))
+      setErrors((prev) => ({ ...prev, [field]: "" }));
     }
-  }
+  };
 
   return (
-    <section id="contato" className="px-4 relative overflow-hidden scroll-smooth min-h-screen py-12">
+    <section
+      id="contato"
+      className="px-4 relative overflow-hidden scroll-smooth min-h-screen py-12"
+    >
       <div className="absolute inset-0 bg-[#0d0d0f]" />
       <div className="absolute bottom-0 left-0 right-0 h-[400px] bg-gradient-to-t from-[rgba(0,179,241,0.1)] to-transparent" />
       <motion.div
@@ -134,11 +150,12 @@ export function ContactSection() {
               </span>
             </h2>
             <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
-              Tem um projeto em mente? Entre em contato conosco e vamos transformar suas ideias em realidade.
+              Tem um projeto em mente? Entre em contato conosco e vamos
+              transformar suas ideias em realidade.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto items-start">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto items-start w-full px-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -148,21 +165,32 @@ export function ContactSection() {
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00b3f1] to-[#0180fe] rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-300" />
                 <Card className="relative backdrop-blur-sm border bg-[rgba(20,20,23,0.8)] border-[rgba(0,179,241,0.2)]">
-                  <CardContent className="p-6">
+                  <CardContent className="p-4 sm:p-6">
                     <div className="mb-5 flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00b3f1] to-[#0180fe] flex items-center justify-center">
                         <Send className="w-5 h-5 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold text-white">Envie sua mensagem</h3>
-                        <p className="text-gray-400 text-xs">Respondemos em até 24h</p>
+                        <h3 className="text-lg font-bold text-white">
+                          Envie sua mensagem
+                        </h3>
+                        <p className="text-gray-400 text-xs">
+                          Respondemos em até 24h
+                        </p>
                       </div>
                     </div>
 
-                    <form className="space-y-3.5" onSubmit={handleSubmit} noValidate>
+                    <form
+                      className="space-y-3.5"
+                      onSubmit={handleSubmit}
+                      noValidate
+                    >
                       <div className="grid sm:grid-cols-2 gap-3">
                         <div className="space-y-1.5">
-                          <Label htmlFor="name" className="text-gray-300 text-xs font-medium">
+                          <Label
+                            htmlFor="name"
+                            className="text-gray-300 text-xs font-medium"
+                          >
                             Nome
                           </Label>
                           <div className="relative">
@@ -170,23 +198,34 @@ export function ContactSection() {
                             <Input
                               id="name"
                               value={formData.name}
-                              onChange={(e) => handleChange("name", e.target.value)}
+                              onChange={(e) =>
+                                handleChange("name", e.target.value)
+                              }
                               placeholder="Seu nome"
                               className={`bg-gray-900/80 border-gray-700/50 text-white placeholder:text-gray-500 h-10 rounded-lg pl-10 pr-3 text-sm transition-all duration-300 focus:border-[#00b3f1] focus:ring-2 focus:ring-[#00b3f1]/20 focus:bg-gray-900 hover:border-gray-600/70 ${
                                 errors.name ? "border-red-500/50" : ""
                               }`}
                               aria-invalid={!!errors.name}
-                              aria-describedby={errors.name ? "name-error" : undefined}
+                              aria-describedby={
+                                errors.name ? "name-error" : undefined
+                              }
                             />
                           </div>
                           {errors.name && (
-                            <p id="name-error" className="text-red-400 text-xs mt-0.5" role="alert">
+                            <p
+                              id="name-error"
+                              className="text-red-400 text-xs mt-0.5"
+                              role="alert"
+                            >
                               {errors.name}
                             </p>
                           )}
                         </div>
                         <div className="space-y-1.5">
-                          <Label htmlFor="email" className="text-gray-300 text-xs font-medium">
+                          <Label
+                            htmlFor="email"
+                            className="text-gray-300 text-xs font-medium"
+                          >
                             Email
                           </Label>
                           <div className="relative">
@@ -195,17 +234,25 @@ export function ContactSection() {
                               id="email"
                               type="email"
                               value={formData.email}
-                              onChange={(e) => handleChange("email", e.target.value)}
+                              onChange={(e) =>
+                                handleChange("email", e.target.value)
+                              }
                               placeholder="seu@email.com"
                               className={`bg-gray-900/80 border-gray-700/50 text-white placeholder:text-gray-500 h-10 rounded-lg pl-10 pr-3 text-sm transition-all duration-300 focus:border-[#00b3f1] focus:ring-2 focus:ring-[#00b3f1]/20 focus:bg-gray-900 hover:border-gray-600/70 ${
                                 errors.email ? "border-red-500/50" : ""
                               }`}
                               aria-invalid={!!errors.email}
-                              aria-describedby={errors.email ? "email-error" : undefined}
+                              aria-describedby={
+                                errors.email ? "email-error" : undefined
+                              }
                             />
                           </div>
                           {errors.email && (
-                            <p id="email-error" className="text-red-400 text-xs mt-0.5" role="alert">
+                            <p
+                              id="email-error"
+                              className="text-red-400 text-xs mt-0.5"
+                              role="alert"
+                            >
                               {errors.email}
                             </p>
                           )}
@@ -213,7 +260,10 @@ export function ContactSection() {
                       </div>
 
                       <div className="space-y-1.5">
-                        <Label htmlFor="subject" className="text-gray-300 text-xs font-medium">
+                        <Label
+                          htmlFor="subject"
+                          className="text-gray-300 text-xs font-medium"
+                        >
                           Assunto
                         </Label>
                         <div className="relative">
@@ -221,24 +271,35 @@ export function ContactSection() {
                           <Input
                             id="subject"
                             value={formData.subject}
-                            onChange={(e) => handleChange("subject", e.target.value)}
+                            onChange={(e) =>
+                              handleChange("subject", e.target.value)
+                            }
                             placeholder="Sobre o que deseja falar?"
                             className={`bg-gray-900/80 border-gray-700/50 text-white placeholder:text-gray-500 h-10 rounded-lg pl-10 pr-3 text-sm transition-all duration-300 focus:border-[#00b3f1] focus:ring-2 focus:ring-[#00b3f1]/20 focus:bg-gray-900 hover:border-gray-600/70 ${
                               errors.subject ? "border-red-500/50" : ""
                             }`}
                             aria-invalid={!!errors.subject}
-                            aria-describedby={errors.subject ? "subject-error" : undefined}
+                            aria-describedby={
+                              errors.subject ? "subject-error" : undefined
+                            }
                           />
                         </div>
                         {errors.subject && (
-                          <p id="subject-error" className="text-red-400 text-xs mt-0.5" role="alert">
+                          <p
+                            id="subject-error"
+                            className="text-red-400 text-xs mt-0.5"
+                            role="alert"
+                          >
                             {errors.subject}
                           </p>
                         )}
                       </div>
 
                       <div className="space-y-1.5">
-                        <Label htmlFor="message" className="text-gray-300 text-xs font-medium">
+                        <Label
+                          htmlFor="message"
+                          className="text-gray-300 text-xs font-medium"
+                        >
                           Mensagem
                         </Label>
                         <div className="relative">
@@ -246,18 +307,26 @@ export function ContactSection() {
                           <Textarea
                             id="message"
                             value={formData.message}
-                            onChange={(e) => handleChange("message", e.target.value)}
+                            onChange={(e) =>
+                              handleChange("message", e.target.value)
+                            }
                             placeholder="Descreva seu projeto ou dúvida..."
                             rows={4}
                             className={`bg-gray-900/80 border-gray-700/50 text-white placeholder:text-gray-500 resize-none rounded-lg pl-10 pr-3 pt-3 text-sm transition-all duration-300 focus:border-[#00b3f1] focus:ring-2 focus:ring-[#00b3f1]/20 focus:bg-gray-900 hover:border-gray-600/70 ${
                               errors.message ? "border-red-500/50" : ""
                             }`}
                             aria-invalid={!!errors.message}
-                            aria-describedby={errors.message ? "message-error" : undefined}
+                            aria-describedby={
+                              errors.message ? "message-error" : undefined
+                            }
                           />
                         </div>
                         {errors.message && (
-                          <p id="message-error" className="text-red-400 text-xs mt-0.5" role="alert">
+                          <p
+                            id="message-error"
+                            className="text-red-400 text-xs mt-0.5"
+                            role="alert"
+                          >
                             {errors.message}
                           </p>
                         )}
@@ -266,7 +335,7 @@ export function ContactSection() {
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="group relative w-full text-white py-3.5 text-sm rounded-lg font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl mt-2 bg-gradient-to-r from-[#00b3f1] to-[#0180fe] shadow-[0_8px_30px_rgba(0,179,241,0.4)] disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="group relative w-full text-white py-3.5 text-sm rounded-lg font-semibold overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl mt-2 bg-gradient-to-r from-[#00b3f1] to-[#0180fe] shadow-[0_8px_30px_rgba(0,179,241,0.4)] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                       >
                         <span className="relative z-10 flex items-center justify-center gap-2">
                           {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
@@ -303,12 +372,17 @@ export function ContactSection() {
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00b3f1] to-[#0180fe] rounded-xl blur opacity-0 group-hover:opacity-20 transition duration-300" />
                 <Card className="relative backdrop-blur-sm border bg-[rgba(20,20,23,0.8)] border-[rgba(0,179,241,0.2)] group-hover:border-[rgba(0,179,241,0.4)] transition-colors">
                   <CardContent className="p-4">
-                    <a href="mailto:adm@zentra-group.com" className="flex items-center gap-3">
+                    <a
+                      href="mailto:adm@zentra-group.com"
+                      className="flex items-center gap-3"
+                    >
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00b3f1] to-[#0180fe] flex items-center justify-center group-hover:scale-110 transition-transform">
                         <Mail className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-white font-bold text-sm mb-0.5">Email</h3>
+                        <h3 className="text-white font-bold text-sm mb-0.5">
+                          Email
+                        </h3>
                         <p className="text-gray-400 hover:text-[#00b3f1] transition-colors text-xs truncate">
                           adm@zentra-group.com
                         </p>
@@ -326,14 +400,19 @@ export function ContactSection() {
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00b3f1] to-[#0180fe] rounded-xl blur opacity-0 group-hover:opacity-20 transition duration-300" />
                 <Card className="relative backdrop-blur-sm border bg-[rgba(20,20,23,0.8)] border-[rgba(0,179,241,0.2)] group-hover:border-[rgba(0,179,241,0.4)] transition-colors">
                   <CardContent className="p-4">
-                    <a href="tel:+5511999999999" className="flex items-center gap-3">
+                    <a
+                      href="tel:+5583981262375"
+                      className="flex items-center gap-3"
+                    >
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0180fe] to-[#00b3f1] flex items-center justify-center group-hover:scale-110 transition-transform">
                         <Phone className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-white font-bold text-sm mb-0.5">Telefone</h3>
+                        <h3 className="text-white font-bold text-sm mb-0.5">
+                          Telefone
+                        </h3>
                         <p className="text-gray-400 hover:text-[#00b3f1] transition-colors text-xs">
-                          +55 (11) 99999-9999
+                          +55 (83) 98126-2375
                         </p>
                       </div>
                     </a>
@@ -354,8 +433,14 @@ export function ContactSection() {
                         <MapPin className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-white font-bold text-sm mb-0.5">Endereço</h3>
-                        <p className="text-gray-400 text-xs">Rua Presidente Getúlio Dorneles Vargas, 111, Caixa Postal 0036, Bairro Centro, CEP: 58175-000 - Cuité - João Pessoa/PB</p>
+                        <h3 className="text-white font-bold text-sm mb-0.5">
+                          Endereço
+                        </h3>
+                        <p className="text-gray-400 text-xs">
+                          Rua Presidente Getúlio Dorneles Vargas, 111, Caixa
+                          Postal 0036, Bairro Centro, CEP: 58175-000 - Cuité -
+                          João Pessoa/PB
+                        </p>
                       </div>
                     </div>
                   </CardContent>
@@ -384,11 +469,17 @@ export function ContactSection() {
                         transition={{ duration: 0.3, delay: 0.4 + i * 0.1 }}
                       >
                         <Avatar className="w-8 h-8 border-2 border-[#0b0b0d]">
-                          <AvatarFallback className={`text-white text-xs ${
-                            i === 0 ? "bg-[#00b3f1]" :
-                            i === 1 ? "bg-[#0180fe]" :
-                            i === 2 ? "bg-[#0090d9]" : "bg-[#0080c2]"
-                          }`}>
+                          <AvatarFallback
+                            className={`text-white text-xs ${
+                              i === 0
+                                ? "bg-[#00b3f1]"
+                                : i === 1
+                                ? "bg-[#0180fe]"
+                                : i === 2
+                                ? "bg-[#0090d9]"
+                                : "bg-[#0080c2]"
+                            }`}
+                          >
                             {letter}
                           </AvatarFallback>
                         </Avatar>
@@ -403,5 +494,5 @@ export function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

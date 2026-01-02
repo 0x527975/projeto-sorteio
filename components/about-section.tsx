@@ -1,17 +1,20 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Rocket, Shield, Users } from "lucide-react"
+import { motion } from "framer-motion";
+import { Rocket, Shield, Users } from "lucide-react";
 
 const stats = [
   { number: "50+", label: "Projetos", icon: Rocket },
   { number: "100%", label: "Satisfação", icon: Users },
   { number: "24/7", label: "Suporte", icon: Shield },
-]
+];
 
 export function AboutSection() {
   return (
-    <section id="sobre" className="py-20 px-4 relative overflow-hidden scroll-smooth">
+    <section
+      id="sobre"
+      className="py-12 sm:py-16 md:py-20 px-4 relative overflow-hidden scroll-smooth"
+    >
       {/* fundo */}
       <div className="absolute inset-0 bg-[#09090b]" />
 
@@ -46,14 +49,15 @@ export function AboutSection() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "linear-gradient(rgba(0,179,241,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,179,241,0.3) 1px, transparent 1px)",
-            backgroundSize: "60px 60px"
+            backgroundImage:
+              "linear-gradient(rgba(0,179,241,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,179,241,0.3) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
           }}
         />
       </div>
 
       <div className="container mx-auto relative z-10 max-w-5xl">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* conteúdo textual */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -67,22 +71,30 @@ export function AboutSection() {
               transition={{ type: "spring", stiffness: 400 }}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#00b3f1] animate-pulse" />
-              <span className="text-xs font-medium text-[#00b3f1]">Sobre Nós</span>
+              <span className="text-xs font-medium text-[#00b3f1]">
+                Sobre Nós
+              </span>
             </motion.div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
               Legalize seu projeto com{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00b3f1] to-[#0180fe]">
                 segurança e tecnologia
               </span>
             </h2>
 
-            <div className="space-y-3 text-gray-400 text-base leading-relaxed">
+            <div className="space-y-3 text-gray-400 text-sm sm:text-base leading-relaxed">
               <p>
-                Na <span className="text-[#00b3f1] font-semibold">ZENTRATECH</span>, desenvolvemos sites, sistemas e plataformas digitais totalmente personalizados, criados do zero para refletir a identidade, os objetivos e as necessidades de cada cliente.
+                Na{" "}
+                <span className="text-[#00b3f1] font-semibold">ZENTRATECH</span>
+                , desenvolvemos sites, sistemas e plataformas digitais
+                totalmente personalizados, criados do zero para refletir a
+                identidade, os objetivos e as necessidades de cada cliente.
               </p>
               <p>
-                Nossos projetos unem design exclusivo, tecnologia moderna, segurança e alta performance, entregando soluções sob medida que fortalecem a presença digital e impulsionam resultados.
+                Nossos projetos unem design exclusivo, tecnologia moderna,
+                segurança e alta performance, entregando soluções sob medida que
+                fortalecem a presença digital e impulsionam resultados.
               </p>
             </div>
           </motion.div>
@@ -117,5 +129,5 @@ export function AboutSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
